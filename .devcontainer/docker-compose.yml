@@ -1,0 +1,32 @@
+version: '3.8'
+
+volumes:
+  pg_data:
+  bundle_data:
+  redis_data:
+
+services:
+  app:
+    image: 5xcampus/ruby:rails6-dev
+    volumes:
+      - ..:/workspace:delegated
+      - $HOME/.ssh/:/root/.ssh/:ro
+      - bundle_data:/usr/local/bundle
+    command: sleep infinity
+    links:
+      - db
+
+  db:
+    image: 5xcampus/pg
+    restart: unless-stopped
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  redis:
+    image: 5xcampus/redis
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data

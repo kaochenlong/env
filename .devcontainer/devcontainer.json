@@ -1,0 +1,23 @@
+{
+	"name": "Busnote App",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	"settings": {
+		"workbench.colorTheme": "One Dark Pro",
+		"terminal.integrated.shell.linux": "/bin/zsh"
+	},
+	"extensions": [
+		"rebornix.ruby",
+		"zhuangtongfa.material-theme",
+		"mhutchie.git-graph",
+		"craigmaslowski.erb",
+		"pkief.material-icon-theme",
+		"wingrunr21.vscode-ruby",
+		"christian-kohler.path-intellisense",
+		"esbenp.prettier-vscode"
+	],
+	"forwardPorts": [
+		3000
+	]
+}
